@@ -13,6 +13,11 @@ ansible - infrastructure automation
     
 Virtualization types
 
+copy pem to ssh
+chmod 400 path-to-pem
+copy .ssh/config
+
+
 ssh zalizniak.com      
     sudo su
     yum update  
