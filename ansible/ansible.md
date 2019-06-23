@@ -5,3 +5,6 @@ pip install ansible
 
 
 /etc/ansible/hosts
+
+
+ansible zalizniak -m ping
