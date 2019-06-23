@@ -125,3 +125,9 @@ ssh zalizniak.com
                                 ask for privilege escalation password
         
         Some modules do not make sense in Ad-Hoc (include, meta, etc)
+        
+Ansible vault vs hashicorp vault        
+packer - build machine images for different platforms
+
+
+aws sts decode-authorization-message --encoded-message BkWSSu1ypIePCr7VHniIL0ig0TiQJoqmniCtTq10uqXNyPcKq0El0Ap4wjuPpHd85FuqcKSKwP-jIGWyyIG2Z-tgemeImWL-kAJTrFULHlk0PRDD0We8krLX_m4YdKKts_2ZUDGZQ4QUOKNPd22JGDCjpr1ONBVr5mMeHCyATCmMpIGkHk8lpbczkkY9naVhktO74SjTNaXZ2PuHCeb-QkxIHd5U7IiPN5a8D7fBZ5-qFRG-yNs1_xu93GEwL0Hx6NsKkjQDmZykDSJ2j23_JScmsFyfl2E4gXNc1bMU7ftvb1eQd2ca1wy61azWr9sHJQ3rswylUi-IYbCj2vhnqeXwwUFM74Um82HdA8Z6xhgcNdST2HZ5jR_IQr_CKMoiR9PZfbP-bsSuzHIEdO2AtFPFkwJZ3IjiWz2pTl6Z0_SC0TCebdnyniNlXNOc9cRtIXMP2ZlJg8cKBEzjtF00efsQsxw3UV82m6oDMN89qAumzopNRNAfLMbecqolSsNg7kvs0R8aBhMIeJGABKFrxnSKlz8 --profile oz_devops_user
