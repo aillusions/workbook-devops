@@ -15,8 +15,8 @@ terraform init
 
 terraform version
 
-    Terraform v0.12.1
-    + provider.aws v2.14.0
+    Terraform v0.12.2
+    + provider.aws v2.16.0
 
 terraform plan
 
