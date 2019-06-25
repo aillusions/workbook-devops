@@ -3,9 +3,9 @@ version: '3.5'
 services:
 
   # http://localhost:7474/browser/
-  workbook-neoj4:
+  workbook-neo4j:
     image: neo4j:3.5.3
-    container_name: workbook-neoj4-srv
+    container_name: workbook-neo4j-srv
     volumes:
       - ./neo4j/data:/data
       - ./neo4j/logs:/logs
