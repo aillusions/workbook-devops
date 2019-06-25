@@ -1,0 +1,17 @@
+version: '3.5'
+
+services:
+
+  workbook-graphdb:
+    image: ontotext/graphdb:8.10.1-se
+    container_name: workbook-graphdb-srv
+    ports:
+      - 7200:7200
+    volumes:
+      - ./graphdb:/opt/graphdb/home
+    networks:
+      - workbook_network
+
+networks:
+  workbook_network:
+    name: workbook_network
