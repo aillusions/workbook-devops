@@ -1,0 +1,19 @@
+version: '3.5'
+
+services:
+
+  # See token in console
+  # http://localhost:8888
+  workbook-tensorflow:
+    image: tensorflow/tensorflow:latest-py3-jupyter
+    container_name: workbook-tensorflow-srv
+    volumes:
+      - ./data:/tf/notebooks
+    ports:
+      - 8888:8888
+    networks:
+      - workbook_network
+
+networks:
+  workbook_network:
+    name: workbook_network
