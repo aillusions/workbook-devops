@@ -2,8 +2,10 @@ version: '3.5'
 
 services:
 
+  # http://localhost:7200/
   workbook-graphdb:
-    image: ontotext/graphdb:8.10.1-se
+#    image: ontotext/graphdb:8.10.1-se
+    image: dhlabbasel/graphdb-free
     container_name: workbook-graphdb-srv
     ports:
       - 7200:7200
