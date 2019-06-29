@@ -4,6 +4,7 @@ import subprocess
 from collections import Counter
 import re
 from collections import defaultdict
+from collections import deque
 
 print("Hello, World!")
 
@@ -46,6 +47,8 @@ for word in ['red', 'blue', 'red', 'green', 'blue', 'blue']:
     cnt[word] += 1
 print "cnt: ", cnt
 
+print 'blue: ', cnt['blue']
+
 words = re.findall(r'\w+', open('hamlet.txt').read().lower())
 print "most_common: ", Counter(words).most_common(5)
 
@@ -53,3 +56,18 @@ nums = defaultdict(int)
 nums['one'] = 1
 nums['two'] = 2
 print 'one', nums['one']
+
+count = defaultdict(int)
+names_list = "Mike John Mike Anna Mike John John Mike Mike Britney Smith Anna Smith".split()
+for names in names_list:
+    count[names] += 1
+print(count)
+
+d = deque('ghi')  # make a new deque with three items
+for elem in d:  # iterate over the deque's elements
+    print elem.upper()
+
+d.append('j')
+d.appendleft('f')
+
+print ('d: ' + str(d))
