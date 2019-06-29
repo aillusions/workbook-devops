@@ -2,3 +2,4 @@
 .terraform
 neo/neo4j
 ontotext/graphdb
+venv
