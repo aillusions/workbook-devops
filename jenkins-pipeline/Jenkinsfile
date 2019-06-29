@@ -1,0 +1,32 @@
+#!/usr/bin/env groovy
+
+pipeline {
+    agent any
+
+    parameters {
+        string(defaultValue: "v2.0.0", description: 'Git repo tag to build', name: 'haproxyVersion')
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+                sh "docker build --build-arg HAPROXY_VERSION=${params.haproxyVersion} -f ./docker/Dockerfile -t aillusions/workbook-hapoxy-zalianiak:${params.haproxyVersion}.alpine ."
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+                sh 'cd test && ./env.sh'
+                sh 'cd test && python3 ./run_tests.py'
+                sh 'cd test && ./stop.sh'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+                sh "docker push aillusions/workbook-hapoxy-zalianiak:${params.haproxyVersion}.alpine"
+            }
+        }
+    }
+}

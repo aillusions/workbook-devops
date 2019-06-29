@@ -1,0 +1,83 @@
+---
+- hosts: workbook
+  remote_user: ubuntu
+  become: yes
+  vars_files:
+    - ./ansible_vault.yml
+  vars:
+    jenkins_hostname: ec2-34-240-125-51.eu-west-1.compute.amazonaws.com
+    jenkins_http_port: 8080
+    jenkins_admin_username: admin
+    jenkins_admin_password: "{{ jenkins_admin_pwd }}"
+  roles:
+    - role: geerlingguy.java
+    - role: geerlingguy.jenkins
+    - role: tommarshall.awscli
+      awscli_pip_package: python-pip
+      awscli_version: 1.11.73
+      awscli_users:
+        - username: jenkins
+          profiles:
+            - name: default
+              access_key_id: "{{ ec2_access_key }}"
+              secret_access_key: "{{ ec2_secret_key }}"
+              region: eu-west-1
+              output: json
+
+  tasks:
+
+    - name: test connection
+      ping:
+
+    - name: "APT - Add Docker GPG key"
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: "APT - Add Docker repository"
+      apt_repository:
+        repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+        state: present
+        filename: docker
+
+    - name: "APT - install misc packages"
+      apt:
+        name: "{{ item }}"
+        update_cache: yes
+      with_items:
+        - "aptitude"
+        - "apt-transport-https"
+        - "ca-certificates"
+        - "curl"
+        - "software-properties-common"
+
+    - name: "APT - install 'docker-ce'"
+      apt:
+        name: "docker-ce"
+        update_cache: yes
+
+    - name: configure git
+      shell: git config --global credential.helper '!aws codecommit credential-helper $@' && git config --global credential.useHttpPath true
+      become_user: jenkins
+
+    - name: allow access to Docker daemon socket
+      shell: usermod -a -G docker jenkins
+
+    # sudo apt-get install docker-compose=1.8.*
+    - name: Install docker-compose
+      apt:
+        name: docker-compose=1.8.*
+        state: present
+        update_cache: yes
+
+    - name: Log into DockerHub
+      docker_login:
+        username: "{{ docker_hub_login }}"
+        password: "{{ docker_hub_password }}"
+        config_path: /var/lib/jenkins/.docker/config.json
+
+    - name: copy haproxy-pipeline build config
+      copy:
+        src: ./haproxy-pipeline/config.xml
+        dest: /var/lib/jenkins/jobs/haproxy-pipeline/config.xml
+        owner: jenkins

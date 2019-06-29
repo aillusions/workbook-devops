@@ -1,0 +1,6 @@
+---
+ec2_access_key: XXXX
+ec2_secret_key: YYYY
+jenkins_admin_pwd: ZZZZ
+docker_hub_login: KKKK
+docker_hub_password: PPPP

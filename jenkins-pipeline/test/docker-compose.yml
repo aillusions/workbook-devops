@@ -1,0 +1,46 @@
+version: '2.0'
+
+services:
+
+  # http://localhost:8081
+  workbook-hapoxy-zalianiak:
+    image: aillusions/workbook-hapoxy-zalianiak:v2.0.0.alpine
+    container_name: workbook-hapoxy-zalianiak-srv
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    ports:
+      - 8081:8081
+    depends_on:
+      - workbook-nginx-8082-zalianiak
+      - workbook-nginx-8083-zalianiak
+    networks:
+      - workbook_network
+
+  # http://localhost:8082
+  workbook-nginx-8082-zalianiak:
+    image: nginx:1.17.0
+    container_name: workbook-nginx-8082-zalianiak-srv
+    volumes:
+      - ./html-8082:/usr/share/nginx/html
+    ports:
+      - 8082:80
+    environment:
+      - NGINX_PORT=8082
+    networks:
+      - workbook_network
+
+  # http://localhost:8083
+  workbook-nginx-8083-zalianiak:
+    image: nginx:1.17.0
+    container_name: workbook-nginx-8083-zalianiak-srv
+    volumes:
+      - ./html-8083:/usr/share/nginx/html
+    ports:
+      - 8083:80
+    environment:
+      - NGINX_PORT=8083
+    networks:
+      - workbook_network
+
+networks:
+  workbook_network:

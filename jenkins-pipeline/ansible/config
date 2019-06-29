@@ -1,0 +1,5 @@
+Host ec2-34-240-125-51.eu-west-1.compute.amazonaws.com
+    HostName ec2-34-240-125-51.eu-west-1.compute.amazonaws.com
+    Port 22
+    User ubuntu
+	IdentityFile ~/.ssh/oleksandrzalizniak.pem
