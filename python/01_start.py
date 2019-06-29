@@ -1,5 +1,10 @@
 # comment
 
+import subprocess
+from collections import Counter
+import re
+from collections import defaultdict
+
 print("Hello, World!")
 
 # amount = float(input('amount ?'))
@@ -31,3 +36,20 @@ starts and ends with
 a triple quotation mark."""
 
 print "strVal: ", strVal
+
+res = subprocess.check_output(["ps", "aux"])
+for line in res.splitlines():
+    print "line: ", line
+
+cnt = Counter()
+for word in ['red', 'blue', 'red', 'green', 'blue', 'blue']:
+    cnt[word] += 1
+print "cnt: ", cnt
+
+words = re.findall(r'\w+', open('hamlet.txt').read().lower())
+print "most_common: ", Counter(words).most_common(5)
+
+nums = defaultdict(int)
+nums['one'] = 1
+nums['two'] = 2
+print 'one', nums['one']
