@@ -28,3 +28,16 @@ networks:
 volumes:
   workbook_vault_data:
     name: workbook_vault_data
+
+
+#  docker exec -it workbook-vault-srv sh
+#   export VAULT_ADDR='http://127.0.0.1:8200'
+#   vault status
+#   vault login
+#      myroot
+#   vault kv put secret/hello foo=world
+#   vault kv get secret/hello
+#   vault kv get -field=foo secret/hello
+#   vault kv get -format=json secret/hello | jq -r .data.data.excited
+#   vault kv delete secret/hello
+#   vault secrets list
