@@ -9,3 +9,4 @@
      
 packer build docker.json
 docker image ls | grep my-ubuntu
+docker run -it my-ubuntu:0.0.1
