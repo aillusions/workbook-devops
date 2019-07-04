@@ -1,0 +1,45 @@
+{
+  "variables": {
+  },
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "profile": "oz_devops_user",
+      "region": "eu-west-1",
+      "source_ami": "ami-01e6a0b85de033c99",
+      "instance_type": "t2.small",
+      "ssh_username": "ubuntu",
+      "force_deregister": true,
+      "ami_name": "remote-dev-machine"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sudo apt-get clean",
+        "sudo apt-get update",
+        "sudo apt-get install -y apt-transport-https ca-certificates nfs-common",
+        "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -",
+        "sudo add-apt-repository \"deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable\"",
+        "sudo apt-get update",
+        "sudo apt-get install -y docker-ce",
+        "sudo usermod -aG docker ubuntu"
+      ]
+    },
+    {
+      "type": "file",
+      "source": "docker.service",
+      "destination": "/tmp/docker.service"
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "sudo mv /tmp/docker.service /lib/systemd/system/docker.service",
+        "sudo chmod 644 /lib/systemd/system/docker.service",
+        "sudo systemctl daemon-reload",
+        "sudo systemctl restart docker"
+      ]
+    }
+  ]
+}
