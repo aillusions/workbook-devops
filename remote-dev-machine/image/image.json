@@ -18,7 +18,8 @@
       "type": "shell",
       "inline": [
         "/usr/bin/cloud-init status --wait"
-      ]
+      ],
+      "only": ["amazon-ebs"]
     },
     {
       "type": "shell",
@@ -61,19 +62,30 @@
       ]
     },
     {
+      "type": "shell",
+      "inline": [
+        "mkdir /home/ubuntu/work"
+      ]
+    },
+    {
       "type": "file",
-      "source": "/Users/alex/.ssh",
+      "source": "/Users/alex/.ssh/",
       "destination": "/home/ubuntu/.ssh"
     },
     {
       "type": "file",
-      "source": "/Users/alex/.aws",
+      "source": "/Users/alex/.aws/",
       "destination": "/home/ubuntu/.aws"
     },
     {
       "type": "file",
-      "source": "/Users/alex/.docker",
+      "source": "/Users/alex/.docker/",
       "destination": "/home/ubuntu/.docker"
+    },
+    {
+      "type": "file",
+      "source": "/Users/alex/work/00-SYNC/",
+      "destination": "/home/ubuntu/work"
     }
   ]
 }

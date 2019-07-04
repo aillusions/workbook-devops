@@ -6,7 +6,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "ansible_instance" {
-  ami           = "ami-0aaa95ad1e75220c6"
+  ami           = "ami-0d09fe7e41b725697"
   instance_type = "t2.nano"
   key_name = "zalizniak_com_aws"
   security_groups =  [aws_security_group.remote_dev_machine_sg.id]
