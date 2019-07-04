@@ -6,3 +6,6 @@
      -var 'aws_secret_key=YOUR SECRET KEY' \
      example.json
     
+     
+packer build docker.json
+docker image ls | grep my-ubuntu
