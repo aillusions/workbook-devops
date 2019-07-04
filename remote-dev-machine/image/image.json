@@ -17,6 +17,12 @@
     {
       "type": "shell",
       "inline": [
+        "/usr/bin/cloud-init status --wait"
+      ]
+    },
+    {
+      "type": "shell",
+      "inline": [
         "sudo apt-get clean",
         "sudo apt-get update",
         "sudo apt-get install -y apt-transport-https ca-certificates nfs-common",
@@ -40,6 +46,34 @@
         "sudo systemctl daemon-reload",
         "sudo systemctl restart docker"
       ]
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "sudo snap install terraform",
+        "sudo apt install packer -y",
+        "sudo apt-get install ansible -y",
+        "sudo apt install openjdk-8-jre-headless -y",
+        "sudo apt install maven -y",
+        "sudo apt-get install nodejs -y",
+        "sudo apt-get install npm -y",
+        "sudo apt  install awscli -y"
+      ]
+    },
+    {
+      "type": "file",
+      "source": "/Users/alex/.ssh",
+      "destination": "/home/ubuntu/.ssh"
+    },
+    {
+      "type": "file",
+      "source": "/Users/alex/.aws",
+      "destination": "/home/ubuntu/.aws"
+    },
+    {
+      "type": "file",
+      "source": "/Users/alex/.docker",
+      "destination": "/home/ubuntu/.docker"
     }
   ]
 }
