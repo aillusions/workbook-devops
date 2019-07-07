@@ -7,7 +7,7 @@ provider "aws" {
 
 resource "aws_instance" "remote_dev_instance" {
   ami           = "ami-08e2e24f6c3226675"
-  instance_type = "t2.micro"
+  instance_type = "t2.medium"
   key_name = "zalizniak_com_aws"
   security_groups =  [aws_security_group.remote_dev_machine_sg.id]
   subnet_id = "subnet-5c459904"
