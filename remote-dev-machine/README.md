@@ -6,7 +6,7 @@ Image:
     # Canonical, Ubuntu, 18.04 LTS, amd64 bionic image build on 2019-06-27
     # Root device type: ebs Virtualization type: hvm ENA Enabled: Yes
  
-    packer build image.json
+    packer build -parallel-builds=0 -only=amazon-ebs image.json 
     
     
 Provision:    
