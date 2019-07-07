@@ -5,21 +5,24 @@ provider "aws" {
   version = "~> 2.14"
 }
 
-resource "aws_instance" "ansible_instance" {
-  ami           = "ami-095253176dd223686"
-  instance_type = "t2.nano"
+resource "aws_instance" "remote_dev_instance" {
+  ami           = "ami-08e2e24f6c3226675"
+  instance_type = "t2.micro"
   key_name = "zalizniak_com_aws"
   security_groups =  [aws_security_group.remote_dev_machine_sg.id]
   subnet_id = "subnet-5c459904"
+  tags = {
+    Name = "Remote dev instance"
+  }
 }
 
 resource "aws_route53_record" "route53_zalizniak_com" {
   name = "zalizniak.com"
   type = "A"
   ttl = "60"
-  records = [aws_instance.ansible_instance.public_ip]
+  records = [aws_instance.remote_dev_instance.public_ip]
   zone_id = "Z5JZ8WD67Q3IA"
-  depends_on = ["aws_instance.ansible_instance"]
+  depends_on = ["aws_instance.remote_dev_instance"]
 }
 
 resource "aws_security_group" "remote_dev_machine_sg" {
