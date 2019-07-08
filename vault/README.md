@@ -22,6 +22,8 @@ docker exec -it workbook-vault-srv sh
 
 AWS 
 
+    https://registry.terraform.io/
+
     https://gruntwork.io/infrastructure-as-code-library/
         https://github.com/hashicorp/terraform-aws-consul
         https://github.com/hashicorp/terraform-aws-vault 

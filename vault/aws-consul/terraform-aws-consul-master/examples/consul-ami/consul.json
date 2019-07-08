@@ -2,7 +2,7 @@
   "min_packer_version": "0.12.0",
   "variables": {
     "aws_region": "eu-west-1",
-    "consul_version": "1.2.2",
+    "consul_version": "1.5.2",
     "download_url": "{{env `CONSUL_DOWNLOAD_URL`}}"
   },
   "builders": [{
@@ -55,6 +55,9 @@
   },{
     "type": "shell",
     "inline": [
+      "chmod +x /tmp/terraform-aws-consul/modules/install-consul/install-consul",
+      "chmod +x /tmp/terraform-aws-consul/modules/install-dnsmasq/install-dnsmasq",
+      "chmod +x /tmp/terraform-aws-consul/modules/run-consul/run-consul",
       "if test -n \"{{user `download_url`}}\"; then",
       " /tmp/terraform-aws-consul/modules/install-consul/install-consul --download-url {{user `download_url`}};",
       "else",

@@ -87,7 +87,12 @@
     },
     {
       "type": "file",
-      "source": "/Users/alex/work/00-SYNC/",
+      "source": "/Users/alex/work/couchbase-cluster",
+      "destination": "/home/ubuntu/work"
+    },
+    {
+      "type": "file",
+      "source": "/Users/alex/work/workbook-devops",
       "destination": "/home/ubuntu/work"
     }
   ]
