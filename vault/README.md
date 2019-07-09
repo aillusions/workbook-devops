@@ -43,3 +43,10 @@ AWS
         terraform init
         terraform plan
         terraform apply
+        
+        
+    https://vault.zalizniak.com:8200/ui/vault/auth?with=token   
+    export VAULT_ADDR='https://vault.zalizniak.com:8200'
+    vault status
+    vault login 
+    vault operator seal 

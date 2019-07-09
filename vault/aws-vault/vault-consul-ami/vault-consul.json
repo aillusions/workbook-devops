@@ -8,9 +8,9 @@
     "consul_download_url": "{{env `CONSUL_DOWNLOAD_URL`}}",
     "vault_download_url": "{{env `VAULT_DOWNLOAD_URL`}}",
     "install_auth_signing_script": "true",
-    "ca_public_key_path": "./tls/ca.crt.pem",
-    "tls_public_key_path": "./tls/vault.crt.pem",
-    "tls_private_key_path": "./tls/vault.key.pem"
+    "ca_public_key_path": "./tls/zalizniak.com.crt.pem",
+    "tls_public_key_path": "./tls/vault.zalizniak.com.crt.pem",
+    "tls_private_key_path": "./tls/vault.zalizniak.com.key.pem"
   },
   "builders": [{
     "ami_name": "vault-consul-ubuntu-{{isotime | clean_ami_name}}-{{uuid}}",
