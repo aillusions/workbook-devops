@@ -29,9 +29,15 @@ AWS
         https://github.com/hashicorp/terraform-aws-vault 
     
     https://github.com/hashicorp/terraform-aws-vault/tree/master/examples/vault-consul-ami
-       cd vault/aws-vault/vault-consul-ami
-       packer build -only amazon-linux-2-ami vault-consul.json
     
+        cd vault/aws-vault/private-tls-cert
+        terraform init
+        terraform apply
+                 
+        cd vault/aws-vault/vault-consul-ami
+        packer build -only ubuntu16-ami vault-consul.json
+    
+    export AWS_DEFAULT_REGION="eu-west-1"
     https://registry.terraform.io/modules/hashicorp/vault/aws/0.13.1/examples/vault-cluster-private
         cd vault/aws-vault
         terraform init
