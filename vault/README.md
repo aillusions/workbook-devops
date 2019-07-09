@@ -49,4 +49,23 @@ AWS
     export VAULT_ADDR='https://vault.zalizniak.com:8200'
     vault status
     vault login 
-    vault operator seal 
+    # vault operator seal 
+
+    vault kv put secret/fakebank api_key=abc1234_ api_secret=1a2b3c4d__
+    
+    
+    cat > sample-policy.hcl <<EOF
+    path "secret/fakebank" {
+        capabilities = ["read"]
+    }
+    EOF
+    
+    vault policy write fakebank-ro ./sample-policy.hcl
+    
+    vault token create -policy=fakebank-ro
+    
+    
+    Another terminal
+    export VAULT_ADDR='https://vault.zalizniak.com:8200'
+    export VAULT_TOKEN=s.n23yTKd5nDSdk1tyKIopfEot
+    vault kv get secret/fakebank
