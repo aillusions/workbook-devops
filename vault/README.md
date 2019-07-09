@@ -69,3 +69,10 @@ AWS
     export VAULT_ADDR='https://vault.zalizniak.com:8200'
     export VAULT_TOKEN=s.n23yTKd5nDSdk1tyKIopfEot
     vault kv get secret/fakebank
+    
+    
+    
+    
+    Consul:
+    
+        ec2-63-32-88-126.eu-west-1.compute.amazonaws.com:8500
