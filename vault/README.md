@@ -27,5 +27,13 @@ AWS
     https://gruntwork.io/infrastructure-as-code-library/
         https://github.com/hashicorp/terraform-aws-consul
         https://github.com/hashicorp/terraform-aws-vault 
-        
-    packer build -only ubuntu16-ami consul.json   
+    
+    https://github.com/hashicorp/terraform-aws-vault/tree/master/examples/vault-consul-ami
+       cd vault/aws-vault/vault-consul-ami
+       packer build -only amazon-linux-2-ami vault-consul.json
+    
+    https://registry.terraform.io/modules/hashicorp/vault/aws/0.13.1/examples/vault-cluster-private
+        cd vault/aws-vault
+        terraform init
+        terraform plan
+        terraform apply
