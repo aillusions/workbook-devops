@@ -1,0 +1,21 @@
+version: '3.5'
+
+services:
+
+  # curl -v localhost:10000/search?q=why
+  # http://localhost:9901/
+  # http://localhost:9901/stats
+  workbook-envoy:
+    image: envoyproxy/envoy:v1.10.0
+    container_name: workbook-envoy-srv
+    volumes:
+      -  ./envoy.yaml:/etc/envoy/envoy.yaml
+    ports:
+      - 10000:10000
+      - 9901:9901
+    networks:
+      - workbook_network
+
+networks:
+  workbook_network:
+    name: workbook_network

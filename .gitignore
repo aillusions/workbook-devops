@@ -4,3 +4,4 @@ neo/neo4j
 ontotext/graphdb
 venv
 *.pem
+.vagrant

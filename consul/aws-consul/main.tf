@@ -20,10 +20,11 @@ module "oz_consul_cluster" {
               EOF
 
   ssh_key_name = "zalizniak_com_aws"
-  cluster_size = 1
+  cluster_size = 3
   cluster_name = "OZ-consul-cluster"
   instance_type = "t2.nano"
   vpc_id = "vpc-c6b707a2"
+  allowed_ssh_cidr_blocks = ["0.0.0.0/0"]
   allowed_inbound_cidr_blocks = ["0.0.0.0/0"]
   availability_zones = ["eu-west-1a"]
 }
