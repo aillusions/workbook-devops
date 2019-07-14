@@ -2,6 +2,7 @@ version: '3.5'
 
 services:
 
+  # https://neo4j.com/blog/jetbrains-ide-plugin-graph-database/
   # http://localhost:7474/browser/
   # neo4j / test
   workbook-neo4j:
