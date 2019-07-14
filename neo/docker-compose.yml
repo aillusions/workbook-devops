@@ -3,6 +3,7 @@ version: '3.5'
 services:
 
   # http://localhost:7474/browser/
+  # neo4j / test
   workbook-neo4j:
     image: neo4j:3.5.3
     container_name: workbook-neo4j-srv
@@ -20,6 +21,24 @@ services:
     environment:
       NEO4J_AUTH: "neo4j/test"
 
+
+  # http://localhost:8000
+  # admin / qwerty
+  workbook-interactor:
+    image: graphileon/interactor-community
+    container_name: workbook-interactor-srv
+    volumes:
+      - workbook_interactor_data:/persistent/
+    ports:
+      - 8000:80
+    networks:
+      - workbook_network
+
 networks:
   workbook_network:
     name: workbook_network
+
+# docker volume rm workbook_interactor_data
+volumes:
+  workbook_interactor_data:
+    name: workbook_interactor_data
