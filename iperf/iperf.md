@@ -10,7 +10,7 @@ apt-get install iperf
         ------------------------------------------------------------
         iperf -c 198.51.100.5[  4] local 127.0.0.1 port 5001 connected with 127.0.0.1 port 47164
         [ ID] Interval       Transfer     Bandwidth
-        [  4]  0.0-10.0 sec  73.8 GBytes  63.4 Gbits/sec
+        [  4]  0.0-10.0 sec  73.8 GBytes  63.4 Gbits/sec [7.38 GB / sec] 
     
         
     iperf -c localhost
