@@ -87,3 +87,6 @@ make wordcount
 
 hdfs dfs -rm /input/README.txt
 hdfs dfs -ls /input/README.txt
+
+
+http://localhost:8089/cluster/apps

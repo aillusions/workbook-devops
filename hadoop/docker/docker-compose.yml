@@ -15,7 +15,7 @@ services:
     networks:
       - workbook_network
 
-
+  # http://localhost:8089/cluster/apps
   resourcemanager:
     image: bde2020/hadoop-resourcemanager:2.0.0-hadoop3.1.1-java8
     container_name: resourcemanager
