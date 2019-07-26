@@ -2,7 +2,7 @@ version: "2"
 
 services:
   namenode:
-    image: bde2020/hadoop-namenode:1.1.0-hadoop2.7.1-java8
+    image: bde2020/hadoop-namenode:2.0.0-hadoop3.1.1-java8
     container_name: namenode
     volumes:
       - hadoop_namenode:/hadoop/dfs/name
@@ -17,7 +17,7 @@ services:
 
 
   resourcemanager:
-    image: bde2020/hadoop-resourcemanager:1.1.0-hadoop2.7.1-java8
+    image: bde2020/hadoop-resourcemanager:2.0.0-hadoop3.1.1-java8
     container_name: resourcemanager
     depends_on:
       - namenode
@@ -31,7 +31,7 @@ services:
       - workbook_network
 
   historyserver:
-    image: bde2020/hadoop-historyserver:1.1.0-hadoop2.7.1-java8
+    image: bde2020/hadoop-historyserver:2.0.0-hadoop3.1.1-java8
     container_name: historyserver
     depends_on:
       - namenode
@@ -45,7 +45,7 @@ services:
       - workbook_network
 
   nodemanager1:
-    image: bde2020/hadoop-nodemanager:1.1.0-hadoop2.7.1-java8
+    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.1.1-java8
     container_name: nodemanager1
     depends_on:
       - namenode
@@ -57,7 +57,7 @@ services:
       - workbook_network
 
   datanode1:
-    image: bde2020/hadoop-datanode:1.1.0-hadoop2.7.1-java8
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.1.1-java8
     container_name: datanode1
     depends_on:
       - namenode
@@ -69,7 +69,7 @@ services:
       - workbook_network
 
   datanode2:
-    image: bde2020/hadoop-datanode:1.1.0-hadoop2.7.1-java8
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.1.1-java8
     container_name: datanode2
     depends_on:
       - namenode
@@ -81,7 +81,7 @@ services:
       - workbook_network
 
   datanode3:
-    image: bde2020/hadoop-datanode:1.1.0-hadoop2.7.1-java8
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.1.1-java8
     container_name: datanode3
     depends_on:
       - namenode
@@ -92,6 +92,11 @@ services:
     networks:
       - workbook_network
 
+# docker volume rm docker_hadoop_namenode
+# docker volume rm docker_hadoop_datanode1
+# docker volume rm docker_hadoop_datanode2
+# docker volume rm docker_hadoop_datanode3
+# docker volume rm docker_hadoop_historyserver
 volumes:
   hadoop_namenode:
   hadoop_datanode1:
