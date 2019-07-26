@@ -8,6 +8,12 @@ sudo apt-get install certbot python-certbot-nginx
 
 sudo certbot --nginx
 
-docker run -p 80:80 -p 443:443 -d -v /home/alex/conf.d:/etc/nginx/conf.d nginx
+docker run -p 443:443 -d -v /home/alex/conf.d:/etc/nginx/conf.d  -v /home/alex/html:/usr/share/nginx/html nginx
 
 /usr/share/nginx/html
+
+
+while true
+do
+  curl -k https://home.zalizniak.com
+done
