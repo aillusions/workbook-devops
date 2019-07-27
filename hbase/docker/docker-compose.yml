@@ -109,6 +109,19 @@ services:
     networks:
       - workbook_network
 
+
+  # http://127.0.0.1:8888
+  # hue:
+  #   image: gethue/hue:latest
+  #   container_name: hbase-hue
+  #   hostname: hbase-hue
+  #   volumes:
+  #     - ./hue.ini:/usr/share/hue/desktop/conf/hue.ini
+  #   ports:
+  #     - 8888:8888
+  #   networks:
+  #     - workbook_network
+
 # docker volume rm docker_hadoop_namenode
 # docker volume rm docker_hadoop_datanode
 # docker volume rm docker_hadoop_historyserver
