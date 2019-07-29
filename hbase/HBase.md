@@ -7,6 +7,16 @@ docker exec -it hbase-master bash
        status
        
             1 active master, 0 backup masters, 1 servers, 0 dead, 2.0000 average load
+            
+            
+       create 'test_table', 'family_a', 'family_b'     
+       
+       list 
+       
+       put 'test_table', '000000001', 'family_a:column_a_1', 'hello world'
+       put 'test_table', '000000001', 'family_a:column_a_2', 'hello world - 2'
+       
+       scan 'test_table'
          
 docker exec -it nodemanager bash
 

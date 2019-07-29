@@ -71,3 +71,10 @@ d.append('j')
 d.appendleft('f')
 
 print ('d: ' + str(d))
+
+print (" Modulo? " + str((-4 % 3) == 2))
+
+x = 0
+while x < 12:
+    print (str(x) + " -> " + str(x % 4))
+    x += 1
