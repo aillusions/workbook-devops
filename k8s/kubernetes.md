@@ -19,10 +19,6 @@ curl http://localhost:30900/
 
 
 kubectl delete pod webserver-5748cdbbfc-klwpr
-minikube service webserver --url
-
-
-
 
 kubectl apply -f dashboard-adminuser.yaml
 kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')
@@ -35,3 +31,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/
 kubectl proxy
 
 http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/login
+
+
+kubectl delete service webserver
+kubectl delete deployment webserver
