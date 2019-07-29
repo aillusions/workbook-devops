@@ -2,6 +2,9 @@ version: '3.5'
 
 services:
 
+  # Create graph http://www.apcjones.com/arrows/
+  # Explorer: http://www.yworks.com/neo4j-explorer/
+
   # https://neo4j.com/blog/jetbrains-ide-plugin-graph-database/
   # http://localhost:7474/browser/
   # neo4j / test
