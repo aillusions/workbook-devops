@@ -35,3 +35,6 @@ http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-da
 
 kubectl delete service webserver
 kubectl delete deployment webserver
+
+
+kubectl get pods --all-namespaces -o wide
