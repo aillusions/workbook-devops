@@ -5,3 +5,6 @@ ontotext/graphdb
 venv
 *.pem
 .vagrant
+
+terraform.tfstate
+terraform.tfstate.backup
